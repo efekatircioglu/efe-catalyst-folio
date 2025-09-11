@@ -3,8 +3,8 @@ import { Github, Linkedin, Mail, FileText } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center bg-gradient-subtle">
-      <div className="container mx-auto px-4 text-center">
+    <section id="hero" className="min-h-screen flex flex-col justify-start md:justify-center bg-gradient-subtle pt-20 pb-8">
+      <div className="container mx-auto px-4 text-center mt-8 md:mt-0">
         <div className="max-w-4xl mx-auto">
           {/* Profile Picture */}
           <div className="mb-8 flex justify-center">
