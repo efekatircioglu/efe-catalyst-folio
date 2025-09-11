@@ -1,107 +1,106 @@
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
-
-// Project data - easily expandable by adding new objects to this array
-const projects = [
-  {
-    id: 1,
-    title: "Vibe Generator",
-    description: "An interactive web application that generates personalized vibes and moods. Built with modern web technologies to create an engaging user experience.",
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Vercel"],
-    liveUrl: "https://vibegenerator.vercel.app/",
-    githubUrl: "https://github.com/efekatircioglu/", // Update with actual repo URL when available
-    featured: true,
-  },
-  // Add more projects here as needed
-  // {
-  //   id: 2,
-  //   title: "Another Project",
-  //   description: "Description of another project...",
-  //   technologies: ["Tech1", "Tech2"],
-  //   liveUrl: "https://example.com",
-  //   githubUrl: "https://github.com/username/repo",
-  //   featured: false,
-  // },
-];
+import { getProjects } from "@/lib/projectsLoader";
 
 const Projects = () => {
+  const projects = getProjects();
+
   return (
-    <section id="projects" className="py-20 bg-gradient-subtle">
+    <section id="projects" className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-navy">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-foreground">
             Projects
           </h2>
           
-          <div className="grid gap-8 md:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project) => (
               <div
                 key={project.id}
-                className={`bg-card rounded-lg shadow-medium overflow-hidden transition-all duration-300 hover:shadow-large ${
-                  project.featured ? 'ring-2 ring-blue-accent ring-opacity-50' : ''
-                }`}
+                className="bg-card rounded-lg shadow-medium overflow-hidden transition-all duration-300 hover:shadow-large hover:scale-105 border border-border"
               >
-                <div className="p-8 md:p-12">
-                  <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-4">
-                        <h3 className="text-2xl md:text-3xl font-bold text-navy">
-                          {project.title}
-                        </h3>
-                        {project.featured && (
-                          <span className="px-3 py-1 bg-blue-accent text-primary-foreground text-sm rounded-full">
-                            Featured
-                          </span>
-                        )}
+                {/* Project Preview Area */}
+                <div className="aspect-video bg-gray-light border-b border-border flex items-center justify-center text-muted-foreground">
+                  <div className="text-center">
+                    <div className="text-sm opacity-60 mb-1">{project.title.toLowerCase().replace(/\s+/g, '_')}</div>
+                    {project.featured && (
+                      <div className="text-xs bg-blue-accent text-primary-foreground px-2 py-1 rounded">
+                        Featured
                       </div>
-                      
-                      <p className="text-gray-medium text-lg mb-6 leading-relaxed">
-                        {project.description}
-                      </p>
-                      
-                      <div className="flex flex-wrap gap-2 mb-6">
-                        {project.technologies.map((tech) => (
-                          <span
-                            key={tech}
-                            className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                    
-                    <div className="flex flex-col sm:flex-row gap-3">
+                    )}
+                  </div>
+                </div>
+                
+                <div className="p-6">
+                  {/* Project Title */}
+                  <h3 className="text-xl font-bold text-card-foreground mb-3">
+                    {project.title}
+                  </h3>
+                  
+                  {/* Project Description */}
+                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-3">
+                    {project.description}
+                  </p>
+                  
+                  {/* Year */}
+                  <div className="text-xs text-muted-foreground mb-4">
+                    {project.year}
+                  </div>
+                  
+                  {/* Technology Tags */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.technologies.slice(0, 4).map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-2 py-1 bg-blue-accent/20 text-blue-accent rounded-full text-xs border border-blue-accent/30"
+                      >
+                        #{tech}
+                      </span>
+                    ))}
+                    {project.technologies.length > 4 && (
+                      <span className="px-2 py-1 bg-muted/20 text-muted-foreground rounded-full text-xs">
+                        +{project.technologies.length - 4}
+                      </span>
+                    )}
+                  </div>
+                  
+                  {/* Action Buttons */}
+                  <div className="flex gap-2">
+                    {project.liveUrl && (
                       <Button
                         variant="hero"
+                        size="sm"
                         asChild
                       >
                         <a
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2"
+                          className="inline-flex items-center gap-1 text-xs"
                         >
-                          <ExternalLink className="w-4 h-4" />
-                          Live Demo
+                          <ExternalLink className="w-3 h-3" />
+                          Live
                         </a>
                       </Button>
-                      
+                    )}
+                    
+                    {project.githubUrl && (
                       <Button
                         variant="social"
+                        size="sm"
                         asChild
                       >
                         <a
                           href={project.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2"
+                          className="inline-flex items-center gap-1 text-xs"
                         >
-                          <Github className="w-4 h-4" />
+                          <Github className="w-3 h-3" />
                           Code
                         </a>
                       </Button>
-                    </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -109,7 +108,7 @@ const Projects = () => {
           </div>
           
           <div className="text-center mt-12">
-            <p className="text-gray-medium text-lg mb-6">
+            <p className="text-muted-foreground text-lg mb-6">
               More projects coming soon! Currently working on exciting new developments.
             </p>
             <Button variant="professional" size="lg" asChild>

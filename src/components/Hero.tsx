@@ -6,13 +6,13 @@ const Hero = () => {
     <section className="min-h-screen flex items-center justify-center bg-gradient-subtle">
       <div className="container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-navy">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">
             Efe Katircioglu
           </h1>
-          <p className="text-xl md:text-2xl text-gray-medium mb-8 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Computer Science Student at King's College London
           </p>
-          <p className="text-lg text-gray-medium mb-12 max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground mb-12 max-w-3xl mx-auto">
             Specializing in full-stack development, driven to solve meaningful problems 
             through user-centric applications and scalable server-side architecture.
           </p>

@@ -8,23 +8,23 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 220 13% 18%;
+    --background: 221 39% 11%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 13% 18%;
+    --card: 221 39% 15%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 13% 18%;
+    --popover: 221 39% 15%;
+    --popover-foreground: 0 0% 98%;
 
     --primary: 221 83% 53%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 220 14% 96%;
-    --secondary-foreground: 220 13% 18%;
+    --secondary: 221 39% 15%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 8% 46%;
+    --muted: 221 39% 15%;
+    --muted-foreground: 220 8% 65%;
 
     --accent: 221 83% 53%;
     --accent-foreground: 0 0% 98%;
@@ -32,8 +32,8 @@ All colors MUST be HSL.
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
+    --border: 221 39% 25%;
+    --input: 221 39% 25%;
     --ring: 221 83% 53%;
 
     /* Professional portfolio colors */
@@ -41,8 +41,8 @@ All colors MUST be HSL.
     --navy-light: 221 39% 15%;
     --blue-accent: 221 83% 53%;
     --blue-light: 221 83% 85%;
-    --gray-light: 220 14% 96%;
-    --gray-medium: 220 8% 46%;
+    --gray-light: 221 39% 20%;
+    --gray-medium: 220 8% 65%;
     
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--navy)), hsl(var(--navy-light)));
@@ -50,10 +50,10 @@ All colors MUST be HSL.
     --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--gray-light)));
     
     /* Shadows */
-    --shadow-soft: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    --shadow-medium: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --shadow-large: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-    --shadow-glow: 0 0 40px hsl(var(--blue-accent) / 0.3);
+    --shadow-soft: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+    --shadow-medium: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+    --shadow-large: 0 25px 50px -12px rgb(0 0 0 / 0.5);
+    --shadow-glow: 0 0 40px hsl(var(--blue-accent) / 0.4);
 
     --radius: 0.75rem;
 
