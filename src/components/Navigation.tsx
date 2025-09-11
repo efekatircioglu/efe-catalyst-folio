@@ -19,7 +19,7 @@ const Navigation = () => {
           <div className="hidden md:flex items-center gap-6">
             <Button 
               variant="ghost" 
-              onClick={() => scrollToSection('about')}
+              onClick={() => scrollToSection('hero')}
             >
               About
             </Button>
@@ -33,7 +33,7 @@ const Navigation = () => {
               variant="social"
               asChild
             >
-              <a href="mailto:efe.katircioglu@example.com">
+              <a href="mailto:katirciogluefe04@gmail.com">
                 Contact
               </a>
             </Button>

@@ -20,15 +20,60 @@ const Projects = () => {
                 className="bg-card rounded-lg shadow-medium overflow-hidden transition-all duration-300 hover:shadow-large hover:scale-105 border border-border"
               >
                 {/* Project Preview Area */}
-                <div className="aspect-video bg-gray-light border-b border-border flex items-center justify-center text-muted-foreground">
-                  <div className="text-center">
-                    <div className="text-sm opacity-60 mb-1">{project.title.toLowerCase().replace(/\s+/g, '_')}</div>
-                    {project.featured && (
+                <div className="aspect-video bg-gray-light border-b border-border flex items-center justify-center text-muted-foreground relative overflow-hidden">
+                  {project.title === "Vibe Generator" ? (
+                    <img 
+                      src="/images/vibegenerator.png" 
+                      alt="Vibe Generator Project" 
+                      className="w-full h-full object-cover"
+                    />
+                  ) : project.title === "Simulation In Jungle" ? (
+                    <img 
+                      src="/images/simulation-in-jungle.png" 
+                      alt="Simulation In Jungle Project" 
+                      className="w-full h-full object-cover"
+                    />
+                  ) : project.title === "Space Invaders" ? (
+                    <img 
+                      src="/images/space-invaders.png" 
+                      alt="Space Invaders Project" 
+                      className="w-full h-full object-cover"
+                    />
+                  ) : project.title === "Track-It" ? (
+                    <img 
+                      src="/images/track-it.png" 
+                      alt="Track-It Project" 
+                      className="w-full h-full object-cover"
+                    />
+                  ) : project.title === "Air Pollution Dashboard" ? (
+                    <img 
+                      src="/images/air-pollution-dashboard.png" 
+                      alt="Air Pollution Dashboard Project" 
+                      className="w-full h-full object-cover"
+                    />
+                  ) : project.title === "Survival In The City" ? (
+                    <img 
+                      src="/images/survival-in-the-city.png" 
+                      alt="Survival In The City Project" 
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="text-center">
+                      <div className="text-sm opacity-60 mb-1">{project.title.toLowerCase().replace(/\s+/g, '_')}</div>
+                      {project.featured && (
+                        <div className="text-xs bg-blue-accent text-primary-foreground px-2 py-1 rounded">
+                          Featured
+                        </div>
+                      )}
+                    </div>
+                  )}
+                  {project.featured && (
+                    <div className="absolute top-2 right-2">
                       <div className="text-xs bg-blue-accent text-primary-foreground px-2 py-1 rounded">
                         Featured
                       </div>
-                    )}
-                  </div>
+                    </div>
+                  )}
                 </div>
                 
                 <div className="p-6">
@@ -108,9 +153,6 @@ const Projects = () => {
           </div>
           
           <div className="text-center mt-12">
-            <p className="text-muted-foreground text-lg mb-6">
-              More projects coming soon! Currently working on exciting new developments.
-            </p>
             <Button variant="professional" size="lg" asChild>
               <a
                 href="https://github.com/efekatircioglu/"

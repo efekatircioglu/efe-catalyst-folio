@@ -12,16 +12,21 @@ export interface Project {
 
 export const parseProjectsFromText = (text: string): Project[] => {
   const projects: Project[] = [];
-  const lines = text.trim().split('\n').filter(line => line.trim());
+  const lines = text.trim().split('\n');
   
-  for (let i = 0; i < lines.length; i += 6) {
-    if (i + 5 < lines.length) {
-      const title = lines[i].trim();
-      const description = lines[i + 1].trim();
-      const year = lines[i + 2].trim();
-      const technologies = lines[i + 3].trim().split(',').map(tech => tech.trim());
-      const liveUrl = lines[i + 4].trim() || undefined;
-      const githubUrl = lines[i + 5].trim() || undefined;
+  // Split by double newlines to get project blocks
+  const projectBlocks = text.trim().split('\n\n');
+  
+  projectBlocks.forEach((block, index) => {
+    const blockLines = block.trim().split('\n').filter(line => line.trim());
+    
+    if (blockLines.length >= 4) {
+      const title = blockLines[0].trim();
+      const description = blockLines[1].trim();
+      const year = blockLines[2].trim();
+      const technologies = blockLines[3].trim().split(',').map(tech => tech.trim());
+      const liveUrl = blockLines[4]?.trim() || undefined;
+      const githubUrl = blockLines[5]?.trim() || undefined;
       
       projects.push({
         id: projects.length + 1,
@@ -29,12 +34,12 @@ export const parseProjectsFromText = (text: string): Project[] => {
         description,
         year,
         technologies,
-        liveUrl,
-        githubUrl,
+        liveUrl: liveUrl || undefined,
+        githubUrl: githubUrl || undefined,
         featured: projects.length === 0, // First project is featured
       });
     }
-  }
+  });
   
   return projects;
 };
@@ -42,41 +47,39 @@ export const parseProjectsFromText = (text: string): Project[] => {
 // Static projects data from Projects.txt
 export const projectsData = `Vibe Generator
 An interactive web application that generates personalized vibes and moods. Built with modern web technologies to create an engaging user experience.
-2024
-React,TypeScript,Tailwind CSS,Vercel
-https://vibegenerator.vercel.app/
-https://github.com/efekatircioglu/
-
-KerGNN Traffic Accident Prediction
-A KerGNN model predicting traffic accidents on city-level graphs using graph kernels and learnable filters.
-2024
-Dissertation,Python,PyTorch,Torch Geometric,SciKit-learn,Machine Learning
-
-
-SocialEase
-An AI-powered real-time social coaching app that helps users practice conversations and improve social skills through instant feedback on speech and nonverbal cues.
 2025
-Flutter,Dart,Serverpod,Google Cloud,Machine Learning,Claude
+Node.js,Express,Next.js, OAuth
+https://vibegenerator.vercel.app/
+https://github.com/efekatircioglu/spotify-vibe-generator
 
+Air Pollution Dashboard
+Developed a JavaFX-based GUI to visualize London's air pollution data from 2018 to 2023, utilizing a dataset of 5 million data points.
+2025
+Java,JavaFX,Data Visualization
 
-Functional Language Compiler
-A compiler for 'Fun', a functional language supporting arithmetic, logic, loops, global variables, and I/O, built using Scala and targeting the LLVM-IR.
+Track-It
+For Klabs Academy, engineered a full-stack Next.js app with NextAuth-based user authentication. Developed custom API endpoints to manage user-specific tasks.
+2025
+Next.js,NextAuth,PostgreSQL,Neon
+
+Simulation In Jungle
+Third Coursework project. Simulation of interactions between several entities within a forest in a 2D-grid.
+2025
+Java
+
+Survival In The City
+Second coursework project. A text-based adventure game where the player must navigate a city to find parts for a car and escape to a shelter.
 2024
-Scala,LLVM,Compiler,Functional Programming
+Java
 
-
-Pacman MDP Agent
-A Python-based Markov Decision Process solver controlling Pacman to maximize score and avoid ghosts across multiple maps.
+Space Invaders
+A personal project inspired by the classic arcade game Space Invaders. 
 2024
-Python,MDP,Value Iteration,Reinforcement Learning
-
-
-ProdDaemon
-A Rust-based daemon and desktop application, providing screen-time analytics and personalized productivity advice through machine learning predictions.
-2024
-Rust,Python,Tauri,PostgreSQL,SolidJS
+Python, Pygame
 `;
 
 export const getProjects = (): Project[] => {
-  return parseProjectsFromText(projectsData);
+  const projects = parseProjectsFromText(projectsData);
+  console.log('Parsed projects:', projects);
+  return projects;
 };
