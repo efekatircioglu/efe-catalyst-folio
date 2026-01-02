@@ -57,6 +57,12 @@ const Projects = () => {
                       alt="Survival In The City Project" 
                       className="w-full h-full object-cover"
                     />
+                  ) : project.title === "Cooked" ? (
+                    <img 
+                      src="/images/cooked.png" 
+                      alt="Cooked Project" 
+                      className="w-full h-full object-cover"
+                    />
                   ) : (
                     <div className="text-center">
                       <div className="text-sm opacity-60 mb-1">{project.title.toLowerCase().replace(/\s+/g, '_')}</div>

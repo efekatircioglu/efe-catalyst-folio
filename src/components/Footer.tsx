@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="max-w-4xl mx-auto text-center">
           <h3 className="text-2xl font-bold mb-4">Efe Katircioglu</h3>
           <p className="text-blue-light mb-8">
-            Computer Science Student & Full-Stack Developer
+            Computer Science Student & Software Engineer
           </p>
           
           <div className="flex justify-center gap-6 mb-8">
