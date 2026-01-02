@@ -45,18 +45,18 @@ export const parseProjectsFromText = (text: string): Project[] => {
 };
 
 // Static projects data from Projects.txt
-export const projectsData = `Cooked
-A modern web application for recipe management and meal planning. Discover, save, and organize your favorite recipes with an intuitive interface.
-2025
-Python, Django, CSS
-https://cooked.dylankainth.com/
-
-Vibe Generator
+export const projectsData = `Vibe Generator
 An interactive web application that generates personalized vibes and moods. Built with modern web technologies to create an engaging user experience.
 2025
 Node.js,Express,Next.js, OAuth
 https://vibegenerator.vercel.app/
 https://github.com/efekatircioglu/spotify-vibe-generator
+
+Cooked
+A modern web application for recipe management and meal planning. Discover, save, and organize your favorite recipes with an intuitive interface.
+2025
+Python, Django, CSS
+https://cooked.dylankainth.com/
 
 Air Pollution Dashboard
 Developed a JavaFX-based GUI to visualize London's air pollution data from 2018 to 2023, utilizing a dataset of 5 million data points.
