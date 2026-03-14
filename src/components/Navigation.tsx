@@ -32,8 +32,12 @@ const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-4 relative">
         <div className="flex items-center justify-between h-16">
-          <div className="font-bold text-xl text-foreground">
-            EK
+          <div className="flex items-center">
+            <img
+              src="/favicon.png"
+              alt="Efe Katircioglu logo"
+              className="h-10 w-10 rounded-md object-cover"
+            />
           </div>
           
           {/* Desktop Navigation */}
@@ -43,6 +47,12 @@ const Navigation = () => {
               onClick={() => scrollToSection('hero')}
             >
               About
+            </Button>
+            <Button 
+              variant="ghost" 
+              onClick={() => scrollToSection('experience')}
+            >
+              Experience
             </Button>
             <Button 
               variant="ghost" 
@@ -82,6 +92,13 @@ const Navigation = () => {
                 onClick={() => scrollToSection('hero')}
               >
                 About
+              </Button>
+              <Button 
+                variant="ghost" 
+                className="w-full justify-start text-left"
+                onClick={() => scrollToSection('experience')}
+              >
+                Experience
               </Button>
               <Button 
                 variant="ghost" 

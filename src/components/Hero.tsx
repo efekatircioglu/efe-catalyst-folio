@@ -8,11 +8,13 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto">
           {/* Profile Picture */}
           <div className="mb-8 flex justify-center">
-            <img 
-              src="/images/profile-picture.jpg" 
-              alt="Efe Katircioglu" 
-              className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-white/20 shadow-lg"
-            />
+            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white/20 shadow-lg">
+              <img
+                src="/images/Screenshot 2026-03-14 at 21.21.20.png"
+                alt="Efe Katircioglu"
+                className="w-full h-full object-cover object-center scale-110"
+              />
+            </div>
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">
@@ -22,7 +24,7 @@ const Hero = () => {
             Computer Science Student at King's College London
           </p>
           <p className="text-lg text-muted-foreground mb-12 max-w-3xl mx-auto">
-          Penultimate year Computer Science student at KCL, driven to use software to solve meaningful, real-world problems. I am passionate about building robust, user-centric applications from end to end. Focusing on architecting the high-performance, secure server-side logic that brings complex features to life.
+          Penultimate year Computer Science student at KCL. Experience in backend focused development with experience on building APIs, testing application logic, deploying full stack systems, and supporting reliable CI/CD workflows. I enjoy designing secure, low latency backend architecture, from OAuth based authentication and data pipelines to scalable services that power real world products.
           </p>
           
           <div className="flex flex-wrap justify-center gap-4">
