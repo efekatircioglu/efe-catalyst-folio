@@ -34,7 +34,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <img
-              src="/favicon.png"
+              src="/nav-logo.png"
               alt="Efe Katircioglu logo"
               className="h-10 w-10 rounded-md object-cover"
             />
