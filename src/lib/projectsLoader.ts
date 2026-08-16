@@ -8,6 +8,7 @@ export interface Project {
   githubUrl?: string;
   featured?: boolean;
   imageUrl?: string;
+  architectureImageUrl?: string;
   detailSummary: string;
   experience: string[];
   highlights: string[];
@@ -16,153 +17,228 @@ export interface Project {
 const projects: Project[] = [
   {
     id: 1,
+    title: "Autonomous Job Finder",
+    description:
+      "A fully autonomous continuous-research job monitor: Python scripts on GitHub Actions crawl and filter openings every 15 minutes, dedupe against a git-backed ledger, and email new roles over Gmail SMTP — no local server, database, or frontend.",
+    year: "2026",
+    technologies: [
+      "Python 3.12",
+      "GitHub Actions",
+      "REST API",
+      "Gmail SMTP",
+      "CI/CD",
+      "JSON State"
+    ],
+    imageUrl: "/images/job-monitor.png",
+    architectureImageUrl: "/images/job-finder-architecture.png",
+    detailSummary:
+      "Built in August 2026 as an autonomous continuous-research system. A GitHub Actions cron triggers Python scripts that pull programme listings, track seen job IDs in data/seen-jobs.json, and send structured alerts to my inbox when new roles open.",
+    experience: [
+      "Wrote check_jobs.py to fetch listings, filter UK Tech 2027 graduate programmes and summer internships, compare against seen job IDs/opening dates, and send HTML digests only for newly announced roles.",
+      "Persisted state in a git-backed data/seen-jobs.json ledger (no database) and auto-committed updates after each Actions run so the monitor stays continuous across runners.",
+      "Orchestrated everything on ubuntu-latest with a */15 cron, setup-python, secrets-backed Gmail SMTP (ssl://smtp.gmail.com:465), and notify_failure.py for pipeline failure alerts — Mac is not part of the runtime."
+    ],
+    highlights: [
+      "Skill: autonomous continuous research — 24/7 monitoring, not one-off scraping.",
+      "Runtime: Python 3.12 on GitHub Actions (checkout, setup-python, git-auto-commit).",
+      "Data path: programme API → filter/dedupe → Gmail SMTP → inbox; state loops back via seen-jobs.json.",
+      "No frontend, no Docker, no cloud DB — private GitHub-hosted automation only."
+    ]
+  },
+  {
+    id: 2,
     title: "Vibe Generator",
     description:
-      "An interactive web application that generates personalized vibes and moods. Built with modern web technologies to create an engaging user experience.",
+      "A full-stack music intelligence platform with secure OAuth, high-throughput data pipelines, and caching designed for low-latency personalized experiences.",
     year: "2025",
-    technologies: ["Node.js", "Express", "Next.js", "OAuth"],
+    technologies: ["Node.js", "Express", "Next.js", "OAuth", "JWT"],
     liveUrl: "https://vibegenerator.vercel.app/",
     githubUrl: "https://github.com/efekatircioglu/spotify-vibe-generator",
     featured: true,
     imageUrl: "/images/vibegenerator.png",
     detailSummary:
-      "Vibe Generator combines authentication, music-driven personalization, and a polished frontend flow to turn user listening context into a playful interactive experience.",
+      "Vibe Generator is a production music platform focused on secure authentication, resilient API aggregation, and performance under external rate limits.",
     experience: [
-      "Designed the full user journey from login through vibe generation so the product felt fast, personal, and easy to explore.",
-      "Integrated OAuth and backend logic to securely connect user accounts and power personalized responses with real user context.",
-      "Focused on the product layer as much as the code, shaping a feature that feels engaging rather than purely technical."
+      "Architected a secure OAuth 2.0 gateway with JWT session management and AES-256 encryption for refresh tokens at rest.",
+      "Built a Node.js pipeline that synchronizes and normalizes streaming metadata across 6+ external APIs using concurrent asynchronous I/O.",
+      "Designed multi-layer caching and request batching that reduced average API latency by 60% and external calls by 80%."
     ],
     highlights: [
-      "Built an end-to-end full-stack experience with authentication and dynamic content generation.",
-      "Connected frontend interactions to backend processing in a way that kept the UI responsive and intuitive.",
-      "Shipped a public live version that showcases both technical execution and product thinking."
+      "23x faster data retrieval through concurrent async ingestion.",
+      "Production-ready auth and token security model.",
+      "Public live deployment showcasing end-to-end backend and product craft."
     ]
   },
   {
     id: 2,
+    title: "SAND",
+    description:
+      "Student Assistance & Navigation Dashboard — a university ticketing platform that replaces scattered emails with structured issue routing for students, TAs, and professors.",
+    year: "2025",
+    technologies: ["Django", "React", "REST APIs", "S3/R2", "IMAP/SMTP", "GitHub Actions"],
+    liveUrl: "https://sand-lyart.vercel.app/",
+    imageUrl: "/images/sand.png",
+    architectureImageUrl: "/images/sand-architecture.png",
+    detailSummary:
+      "SAND gives students one place to raise attendance disputes, flag grading issues, and ask questions, while giving staff role-based tools to triage and resolve tickets quickly.",
+    experience: [
+      "Led a 7-person Agile team architecting a Django API + React SPA with session auth, CSRF protection, and modular backend apps for tickets, users, notifications, reports, and email integration.",
+      "Designed the relational schema around Users, Tickets, Messages, Departments, Courses, Modules, attachments, and notification preferences for department-aware routing.",
+      "Integrated object storage for ticket attachments and IMAP/SMTP mail flows, with 94% backend and 97% frontend coverage across 595 GitHub Actions suites."
+    ],
+    highlights: [
+      "Smart ticketing with open-to-resolved status tracking.",
+      "Role-based access for students, TAs, and professors.",
+      "Modular Django architecture with SPA frontend, relational DB, and external mail/storage services.",
+      "Live at sand-lyart.vercel.app."
+    ]
+  },
+  {
+    id: 3,
+    title: "King's Labs — MedibleGo",
+    description:
+      "Internal operations portal for AI-led customer interviews: schedule calls, capture insights, and feed context into WhatsApp follow-ups from one dashboard.",
+    year: "2026",
+    technologies: ["TypeScript", "AI Agents", "ElevenLabs", "Data Pipelines"],
+    liveUrl: "https://medible-go-ecru.vercel.app/dashboard",
+    imageUrl: "/images/mediblego.png",
+    detailSummary:
+      "MedibleGo is the King's Labs client platform that automates voice-driven interviews and turns successful interview outcomes into structured customer context for acquisition workflows.",
+    experience: [
+      "Engineered the TypeScript client platform with a 10-person team as the core customer acquisition engine.",
+      "Deployed an ElevenLabs AI agent for automated voice-driven customer interviews, including scheduling flows from the dashboard.",
+      "Architected backend data extraction pipelines feeding a WhatsApp chatbot that continuously addresses specific customer needs."
+    ],
+    highlights: [
+      "Schedule Interview dashboard with contact, timezone, and WhatsApp sync.",
+      "AI-led interview automation tied to live acquisition workflows.",
+      "Live demo at medible-go-ecru.vercel.app."
+    ]
+  },
+  {
+    id: 4,
     title: "Cooked",
     description:
-      "A modern web application for recipe management and meal planning, delivered while leading a team of 5 developers. Discover, save, and organize your favorite recipes with an intuitive interface.",
+      "A recipe management and meal-planning web app delivered while leading a team of 5 developers.",
     year: "2025",
     technologies: ["Python", "Django", "CSS"],
     liveUrl: "https://cooked.dylankainth.com/",
     imageUrl: "/images/cooked.png",
     detailSummary:
-      "Cooked is a recipe-focused web application centered on organizing meals and surfacing useful content through a clean, approachable interface, built while leading a 5-person development team.",
+      "Cooked is a recipe-focused web application built around clear discovery and organization flows, delivered under team leadership.",
     experience: [
-      "Led a team of 5 developers in shaping the product direction and delivering a clear recipe discovery and meal-planning experience.",
-      "Coordinated the technical work across the team while using Django to support a structured backend and server-rendered application behavior.",
-      "Guided the interface direction so the product stayed lightweight, readable, and centered on content usability."
+      "Led a team of 5 developers shaping product direction and delivery.",
+      "Coordinated Django backend structure and server-rendered application behavior.",
+      "Guided interface decisions so content stayed readable and approachable."
     ],
     highlights: [
-      "Led a 5-developer team on a client-facing recipe management product.",
-      "Private client-facing project with a live deployment.",
-      "Simple interface designed to keep the experience approachable."
-    ]
-  },
-  {
-    id: 3,
-    title: "Air Pollution Dashboard",
-    description:
-      "Developed a JavaFX-based GUI to visualize London's air pollution data from 2018 to 2023, utilizing a dataset of 5 million data points.",
-    year: "2025",
-    technologies: ["Java", "JavaFX", "Data Visualization"],
-    imageUrl: "/images/air-pollution-dashboard.png",
-    detailSummary:
-      "Air Pollution Dashboard turns a large public dataset into an explorable desktop interface, helping users understand air-quality trends across London over time while reflecting your role leading the team behind the project.",
-    experience: [
-      "Led a team of 4 developers and translated a large multi-year dataset into a UI that made patterns easier to inspect and compare.",
-      "Directed the JavaFX implementation so the visualizations balanced performance, clarity, and usability while handling millions of records.",
-      "Approached the project as both a data problem and a communication problem, guiding the team toward clearer user interpretation."
-    ],
-    highlights: [
-      "Visualized roughly 5 million data points from 2018 to 2023.",
-      "Led a 4-person team through the end-to-end build.",
-      "Created a desktop GUI tailored for exploration instead of static reporting.",
-      "Improved accessibility of complex environmental data through clear presentation."
-    ]
-  },
-  {
-    id: 4,
-    title: "Track-It",
-    description:
-      "For Klabs Academy, engineered a full-stack Next.js app with NextAuth-based user authentication. Developed custom API endpoints to manage user-specific tasks.",
-    year: "2025",
-    technologies: ["Next.js", "NextAuth", "PostgreSQL", "Neon"],
-    imageUrl: "/images/track-it.png",
-    detailSummary:
-      "Track-It is a full-stack task management platform built in collaboration with King's Labs, combining authentication, database-backed persistence, and user-specific workflows.",
-    experience: [
-      "Built authenticated task flows for King's Labs so users could securely manage their own data inside a clean full-stack product.",
-      "Implemented custom API endpoints and database-backed task handling to support reliable create, update, and retrieval flows.",
-      "Worked across frontend and backend layers, making sure the application felt coherent from sign-in through day-to-day task usage."
-    ],
-    highlights: [
-      "Developed for King's Labs as a practical full-stack product.",
-      "Used NextAuth to support secure user authentication and session handling.",
-      "Connected the app to PostgreSQL and Neon for persistent user-specific task storage."
+      "Led a 5-developer delivery team.",
+      "Live client-facing deployment.",
+      "Focused meal-planning and recipe workflow."
     ]
   },
   {
     id: 5,
-    title: "Simulation In Jungle",
+    title: "Air Pollution Dashboard",
     description:
-      "Third Coursework project. Simulation of interactions between several entities within a forest in a 2D-grid.",
+      "Led a 4-person team building a JavaFX GUI to explore London air pollution data across millions of records from 2018 to 2023.",
     year: "2025",
-    technologies: ["Java"],
-    imageUrl: "/images/simulation-in-jungle.png",
+    technologies: ["Java", "JavaFX", "Data Visualization"],
+    imageUrl: "/images/air-pollution-dashboard.png",
     detailSummary:
-      "Simulation In Jungle models interactions between multiple entities inside a grid-based environment, focusing on object-oriented structure and system behavior.",
+      "An exploratory desktop dashboard for inspecting London air-quality trends at scale.",
     experience: [
-      "Designed the simulation around clear entity interactions and state changes.",
-      "Used Java to organize the rules of the environment into manageable logic.",
-      "Focused on making the simulation behavior consistent and easy to reason about."
+      "Led a team of 4 through end-to-end design and delivery.",
+      "Directed JavaFX visualizations that balanced performance and clarity on large datasets.",
+      "Treated the work as both a data and communication problem."
     ],
     highlights: [
-      "Grid-based entity simulation.",
-      "Coursework project centered on logic design.",
-      "Emphasis on system rules and interaction handling."
+      "Visualized ~5 million data points.",
+      "Team leadership on a complex visualization product.",
+      "Exploration-first desktop GUI."
     ]
   },
   {
     id: 6,
-    title: "Survival In The City",
+    title: "King's Labs — TrackIt",
     description:
-      "Second coursework project. A text-based adventure game where the player must navigate a city to find parts for a car and escape to a shelter.",
-    year: "2024",
-    technologies: ["Java"],
-    imageUrl: "/images/survival-in-the-city.png",
+      "Full-stack Next.js task management app for King's Labs with NextAuth and Neon-backed user-specific APIs.",
+    year: "2025",
+    technologies: ["Next.js", "NextAuth", "PostgreSQL", "Neon"],
+    imageUrl: "/images/track-it.png",
     detailSummary:
-      "Survival In The City is a narrative-driven text adventure built around progression, exploration, and decision-making under pressure.",
+      "TrackIt combines authentication, persistence, and user-specific task workflows into a practical full-stack product.",
     experience: [
-      "Created a text-based gameplay loop that encouraged exploration and resource-focused choices.",
-      "Structured game logic in Java around player progression and item collection.",
-      "Used the project to build confidence in state management and branching interactions."
+      "Built authenticated task flows for secure user-specific data management.",
+      "Implemented CRUD APIs backed by Neon PostgreSQL with multi-tenant isolation.",
+      "Worked across frontend and backend so the product felt coherent from sign-in to daily use."
     ],
     highlights: [
-      "Text adventure gameplay.",
-      "Exploration and progression-focused design.",
-      "Java coursework project with narrative logic."
+      "Secure NextAuth-based sessions.",
+      "Neon/PostgreSQL persistence.",
+      "Practical full-stack delivery with King's Labs."
     ]
   },
   {
     id: 7,
+    title: "Simulation In Jungle",
+    description:
+      "Coursework simulation of entity interactions inside a forest on a 2D grid.",
+    year: "2025",
+    technologies: ["Java"],
+    imageUrl: "/images/simulation-in-jungle.png",
+    detailSummary:
+      "A grid-based simulation focused on object-oriented structure and consistent system behavior.",
+    experience: [
+      "Designed entity interactions and state transitions.",
+      "Organized environment rules into maintainable Java logic.",
+      "Prioritized predictable simulation behavior."
+    ],
+    highlights: [
+      "Grid-based entity simulation.",
+      "Strong OO design focus.",
+      "Coursework systems project."
+    ]
+  },
+  {
+    id: 8,
+    title: "Survival In The City",
+    description:
+      "Text-based adventure where the player navigates a city, gathers parts, and escapes to a shelter.",
+    year: "2024",
+    technologies: ["Java"],
+    imageUrl: "/images/survival-in-the-city.png",
+    detailSummary:
+      "A narrative adventure centered on progression, exploration, and branching decisions.",
+    experience: [
+      "Built a text gameplay loop around exploration and resource choices.",
+      "Structured progression and item collection in Java.",
+      "Practiced state management and branching interactions."
+    ],
+    highlights: [
+      "Narrative-driven gameplay.",
+      "Exploration and progression systems.",
+      "Java coursework project."
+    ]
+  },
+  {
+    id: 9,
     title: "Space Invaders",
-    description: "A personal project inspired by the classic arcade game Space Invaders.",
+    description: "A personal arcade-inspired game built with Python and Pygame.",
     year: "2024",
     technologies: ["Python", "Pygame"],
     imageUrl: "/images/space-invaders.png",
     detailSummary:
-      "Space Invaders recreates the feel of the arcade classic while giving room to practice gameplay loops, collision logic, and real-time feedback.",
+      "A recreation of classic arcade pacing used to practice real-time loops, collisions, and feedback.",
     experience: [
-      "Implemented the core arcade loop using Python and Pygame.",
-      "Worked on collision handling, movement, and responsive player feedback.",
-      "Used the project as a way to deepen practical game-development fundamentals."
+      "Implemented the core arcade loop in Python and Pygame.",
+      "Handled collision, movement, and responsive feedback.",
+      "Used the project to deepen game-development fundamentals."
     ],
     highlights: [
-      "Classic arcade-inspired gameplay.",
-      "Built with Python and Pygame.",
-      "Focus on core game mechanics and polish."
+      "Arcade-inspired gameplay loop.",
+      "Python and Pygame implementation.",
+      "Focus on core mechanics."
     ]
   }
 ];

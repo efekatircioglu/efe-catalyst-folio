@@ -1,11 +1,4 @@
-import { Award, BriefcaseBusiness, CalendarDays, MapPin } from "lucide-react";
-
 import { experienceData } from "@/lib/experienceData";
-
-const categoryStyles = {
-  Engineering: "bg-blue-accent/20 text-blue-accent border-blue-accent/30",
-  Certification: "bg-blue-accent/15 text-blue-accent border-blue-accent/30",
-} as const;
 
 const Experience = () => {
   const orderedExperience = [...experienceData].sort(
@@ -13,66 +6,52 @@ const Experience = () => {
   );
 
   return (
-    <section id="experience" className="py-20 bg-background">
+    <section id="experience" className="py-20 md:py-28 section-rule">
       <div className="container mx-auto px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="max-w-3xl mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+        <div className="max-w-6xl mx-auto">
+          <div className="max-w-2xl mb-14">
+            <p className="text-sm uppercase tracking-[0.2em] text-primary mb-3 font-medium">
+              Work
+            </p>
+            <h2 className="font-display text-4xl md:text-5xl font-semibold text-foreground mb-4">
               Experience
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Experience across software engineering, client delivery, and full-stack
-              web development training.
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              Banking technology at ICBC Standard Bank — CI/CD automation, legacy migrations,
+              documentation pipelines, and AI-assisted engineering workflows.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {orderedExperience.map((experience) => (
+          <div className="space-y-0">
+            {orderedExperience.map((experience, index) => (
               <article
                 key={experience.id}
-                className="bg-card rounded-lg border border-border shadow-medium p-6 transition-all duration-300 hover:shadow-large hover:-translate-y-1"
+                className="grid gap-6 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)] py-10 border-t border-border/80 first:border-t-0 animate-in fade-in slide-in-from-bottom-2 duration-500"
+                style={{ animationDelay: `${index * 60}ms` }}
               >
-                <div className="flex flex-col gap-5 h-full">
-                  <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-                    <div>
-                      <h3 className="text-2xl font-semibold text-card-foreground">
-                        {experience.title}
-                      </h3>
-                      <div className="mt-2 flex items-center gap-2 text-muted-foreground">
-                        <BriefcaseBusiness className="w-4 h-4" />
-                        <span className="text-sm">{experience.organization}</span>
-                      </div>
-                    </div>
+                <header>
+                  <h3 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-2">
+                    {experience.title}
+                  </h3>
+                  <p className="text-primary font-medium mb-3">
+                    {experience.organization}
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    {experience.location}
+                  </p>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    {experience.dateRange}
+                  </p>
+                </header>
 
-                    <div className="flex flex-col gap-2 text-sm text-muted-foreground sm:items-end">
-                      <div className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4" />
-                        <span>{experience.location}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <CalendarDays className="w-4 h-4" />
-                        <span>{experience.dateRange}</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {experience.category === "Certification" && (
-                    <div className="inline-flex w-fit items-center gap-2 rounded-full border px-3 py-1 text-xs font-medium">
-                      <Award className="w-3.5 h-3.5" />
-                      <span
-                        className={`rounded-full border px-2 py-1 ${categoryStyles[experience.category]}`}
-                      >
-                        {experience.category}
-                      </span>
-                    </div>
-                  )}
-
-                  <ul className="space-y-3 text-muted-foreground leading-7 list-disc pl-5">
-                    {experience.bullets.map((bullet) => (
-                      <li key={bullet}>{bullet}</li>
-                    ))}
-                  </ul>
-                </div>
+                <ul className="space-y-4 text-muted-foreground leading-7">
+                  {experience.bullets.map((bullet) => (
+                    <li key={bullet} className="relative pl-5">
+                      <span className="absolute left-0 top-3 h-1.5 w-1.5 rounded-full bg-primary/80" />
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
               </article>
             ))}
           </div>
