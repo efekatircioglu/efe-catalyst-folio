@@ -49,24 +49,25 @@ const projects: Project[] = [
     id: 2,
     title: "Vibe Generator",
     description:
-      "A full-stack music intelligence platform with secure OAuth, high-throughput data pipelines, and caching designed for low-latency personalized experiences.",
+      "A Spotify-based full-stack application bridging 6 major music APIs to analyze listening behaviors, discover tracks, and find concerts.",
     year: "2025",
-    technologies: ["Node.js", "Express", "Next.js", "OAuth", "JWT"],
+    technologies: ["Node.js", "Express", "Next.js", "React", "OAuth"],
     liveUrl: "https://vibegenerator.vercel.app/",
     githubUrl: "https://github.com/efekatircioglu/spotify-vibe-generator",
     featured: true,
     imageUrl: "/images/vibegenerator.png",
     detailSummary:
-      "Vibe Generator is a production music platform focused on secure authentication, resilient API aggregation, and performance under external rate limits.",
+      "Vibe Generator aggregates listening data across 6 music APIs, with Spotify OAuth, concurrent ingestion, and client-side caching aimed at rate limits and cloud cost.",
     experience: [
-      "Architected a secure OAuth 2.0 gateway with JWT session management and AES-256 encryption for refresh tokens at rest.",
-      "Built a Node.js pipeline that synchronizes and normalizes streaming metadata across 6+ external APIs using concurrent asynchronous I/O.",
-      "Designed multi-layer caching and request batching that reduced average API latency by 60% and external calls by 80%."
+      "Engineered the core Node.js backend to remove initial request bottlenecks, replacing sequential fetching with concurrent asynchronous I/O to synchronize streaming metadata and boost data retrieval by 23x.",
+      "Implemented client-side caching with browser storage APIs and request batching for high-frequency data, cutting average API latency by 60% and external calls by 80% to ease upstream rate limits and cloud server cost.",
+      "Orchestrated an end-to-end Spotify OAuth 2.0 flow to aggregate data across multiple external APIs, enabling discovery of 50+ new tracks and the purchase of 10 concert tickets for a production group of 25 users.",
+      "Deployed the Node.js backend with the Next.js and React frontend on a DigitalOcean Cloud Droplet, using a serverless Neon database and PM2 for process management."
     ],
     highlights: [
-      "23x faster data retrieval through concurrent async ingestion.",
-      "Production-ready auth and token security model.",
-      "Public live deployment showcasing end-to-end backend and product craft."
+      "23x faster data retrieval by replacing sequential fetches with concurrent async I/O.",
+      "60% lower API latency and 80% fewer external calls through client-side caching and request batching.",
+      "Live on a DigitalOcean Droplet with Neon and PM2, serving a production group of 25 users."
     ]
   },
   {
@@ -105,8 +106,8 @@ const projects: Project[] = [
     detailSummary:
       "MedibleGo is the King's Labs client platform that automates voice-driven interviews and turns successful interview outcomes into structured customer context for acquisition workflows.",
     experience: [
-      "Engineered the TypeScript client platform with a 10-person team as the core customer acquisition engine.",
-      "Deployed an ElevenLabs AI agent for automated voice-driven customer interviews, including scheduling flows from the dashboard.",
+      "Built the client communication platform with a 7-person Agile team as the core customer acquisition engine.",
+      "Deployed an ElevenLabs AI voice agent to autonomously handle end-customer calls and route extracted conversational data into a personalized WhatsApp chatbot.",
       "Architected backend data extraction pipelines feeding a WhatsApp chatbot that continuously addresses specific customer needs."
     ],
     highlights: [

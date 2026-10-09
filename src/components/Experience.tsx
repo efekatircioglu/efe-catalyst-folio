@@ -17,8 +17,8 @@ const Experience = () => {
               Experience
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed">
-              Banking technology at ICBC Standard Bank — CI/CD automation, legacy migrations,
-              documentation pipelines, and AI-assisted engineering workflows.
+              Banking technology at ICBC Standard Bank — CI/CD automation, a legacy Angular migration,
+              test coverage, and documentation pipelines for LLM processing.
             </p>
           </div>
 

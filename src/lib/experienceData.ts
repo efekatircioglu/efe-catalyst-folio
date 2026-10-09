@@ -19,9 +19,10 @@ export const experienceData: ExperienceEntry[] = [
     category: "Engineering",
     sortOrder: 202606,
     bullets: [
-      "Architected a TeamCity CI/CD pipeline with a doc-to-code dependency mapper that selectively extracts and AI-validates outdated technical Markdown documents, then publishes updates to Confluence via MCP on PR merges.",
-      "Resolved critical npm blockers while migrating a legacy AngularJS 1.8 frontend to Angular 22 across a .NET/C# stack, using standalone components to cut deprecated dependencies and reduce technical debt by 40%.",
-      "Restructured and token-optimized thousands of lines of legacy documentation into a semantic Markdown schema, improving LLM context-window utility and reducing hallucinations in RAG-driven refactoring workflows."
+      "Designed and implemented an end-to-end TeamCity CI/CD pipeline that autonomously extracts Markdown, validates it via Copilot, and publishes updates to Confluence — a reusable automation framework that removes knowledge-sharing bottlenecks.",
+      "Delivered a production-ready application by rescuing a stalled migration from AngularJS 1.8 to Angular 22 within a .NET/C# stack, resolving npm dependency conflicts, mitigating legacy vulnerabilities, and validating 36 REST API endpoints via Swagger.",
+      "Increased line and branch test coverage by running MSTest, Rhino Mocks, and Jasmine suites in Visual Studio, resolving 5 hidden bugs and cleaning legacy code.",
+      "Minimized token overhead and streamlined LLM processing by developing a reusable skills library to tokenize and restructure legacy technical documentation, patching gaps across 41 Legal & Compliance applications and data feeds."
     ]
   }
 ];
