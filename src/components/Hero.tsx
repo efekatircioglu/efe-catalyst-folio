@@ -26,7 +26,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl animate-in fade-in slide-in-from-bottom-4 duration-700">
           <p className="text-sm uppercase tracking-[0.22em] text-primary mb-5 font-medium">
-            Backend · Pipelines · CI/CD · AI Tools
+            Backend · Integrations · AI Agents · CI/CD
           </p>
 
           <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-foreground leading-[0.95] mb-6">
@@ -34,7 +34,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-4 leading-relaxed">
-            Technology Intern at ICBC Standard Bank &amp; Final-year Computer Science student at
+            Founding Engineer at ChatBlu AI &amp; Final-year Computer Science student at
             King&apos;s College London · graduating Summer 2027 · London, UK
           </p>
 
@@ -91,7 +91,7 @@ const Hero = () => {
               },
               {
                 label: "Frameworks",
-                items: ["Node.js", "Express", "Next.js", "React", "Django", "Angular", ".NET", "JavaFX"],
+                items: ["FastAPI", "SQLAlchemy", "pytest", "Node.js", "Express", "Next.js", "React", "Django", "Angular", ".NET"],
               },
               {
                 label: "Tools",
@@ -106,6 +106,9 @@ const Hero = () => {
                   "JWT",
                   "REST APIs",
                   "PostgreSQL",
+                  "Alembic",
+                  "pgvector",
+                  "Docker",
                   "Neon",
                   "Confluence",
                   "MCP",
@@ -118,6 +121,9 @@ const Hero = () => {
                   "Vercel",
                   "DigitalOcean",
                   "S3/R2",
+                  "Retell AI",
+                  "Twilio",
+                  "WhatsApp Cloud API",
                   "ElevenLabs",
                   "Cursor",
                   "Claude",

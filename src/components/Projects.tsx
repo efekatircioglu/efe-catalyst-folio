@@ -63,9 +63,9 @@ const Projects = () => {
                   >
                     <div className="aspect-[16/10] bg-secondary/40 border-b border-border/80 relative overflow-hidden">
                       {renderProjectPreview(project)}
-                      {project.featured && (
+                      {(project.badge || project.featured) && (
                         <div className="absolute top-4 left-4 text-xs tracking-wide uppercase bg-background/85 text-primary border border-primary/30 px-2.5 py-1">
-                          Featured
+                          {project.badge ?? "Featured"}
                         </div>
                       )}
                     </div>

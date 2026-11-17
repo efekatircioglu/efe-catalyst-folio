@@ -10,7 +10,7 @@ const Footer = () => {
               Efe Katircioglu
             </h3>
             <p className="text-muted-foreground max-w-md">
-              Technology Intern at ICBC Standard Bank &amp; Final-year Computer Science student at
+              Founding Engineer at ChatBlu AI &amp; Final-year Computer Science student at
               King&apos;s College London, graduating Summer 2027. Based in London, UK.
             </p>
           </div>

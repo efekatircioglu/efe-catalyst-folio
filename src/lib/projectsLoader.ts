@@ -7,6 +7,8 @@ export interface Project {
   liveUrl?: string;
   githubUrl?: string;
   featured?: boolean;
+  /** Corner label on the card; overrides the "Featured" label when set. */
+  badge?: string;
   imageUrl?: string;
   architectureImageUrl?: string;
   detailSummary: string;
@@ -71,7 +73,7 @@ const projects: Project[] = [
     ]
   },
   {
-    id: 2,
+    id: 3,
     title: "SAND",
     description:
       "Student Assistance & Navigation Dashboard — a university ticketing platform that replaces scattered emails with structured issue routing for students, TAs, and professors.",
@@ -95,7 +97,7 @@ const projects: Project[] = [
     ]
   },
   {
-    id: 3,
+    id: 4,
     title: "King's Labs — MedibleGo",
     description:
       "Internal operations portal for AI-led customer interviews: schedule calls, capture insights, and feed context into WhatsApp follow-ups from one dashboard.",
@@ -117,7 +119,34 @@ const projects: Project[] = [
     ]
   },
   {
-    id: 4,
+    id: 5,
+    title: "Su's 21st Birthday Mystery",
+    description:
+      "A side project just for fun: a phone-first mystery adventure built as a 21st birthday gift for Su. She flies a hot-air balloon between places from our shared memories, solving puzzles to recover eight lost pieces of her birthday calendar.",
+    year: "2026",
+    technologies: ["JavaScript", "HTML5 Canvas", "Web Audio API", "CSS", "Vercel"],
+    liveUrl: "https://su-21st-birthday.vercel.app/",
+    githubUrl: "https://github.com/efekatircioglu/su-21st-birthday",
+    badge: "Just for fun",
+    imageUrl: "/images/su-21st-birthday.jpg",
+    detailSummary:
+      "Su ve Kayıp Doğum Günü Gizemi (Su and the Lost Birthday Mystery) is a Turkish-language mobile game made as a birthday present. It runs as a single static HTML file with no framework, build step, or backend.",
+    experience: [
+      "Wrote the whole game as one dependency-free index.html of about 2,300 lines of vanilla JavaScript, HTML, and CSS, deployed as a static site on Vercel.",
+      "Built a small isometric engine on HTML5 Canvas with depth sorting, tap-to-move BFS pathfinding around obstacles, and characters, animals, and scenery drawn in code rather than from sprite sheets.",
+      "Designed 12 explorable areas across London, Ouzoud, Rome, Nice, Kotor, Vienna, and a farm, linked by a balloon map, with three story chapters and a finale.",
+      "Made mini-games along the way: a flashlight hunt, a balloon quiz, a dock chase, a monkey balancing act, a 1,350-step climb up Kotor, and a postcard memory match.",
+      "Added localStorage save and resume, sound effects synthesised live with the Web Audio API, and a ?dev test panel that jumps straight to any chapter, place, or mini-game for quick playtesting on a phone."
+    ],
+    highlights: [
+      "A personal side project, made as a gift and not as a product.",
+      "Zero dependencies: Canvas 2D, Web Audio, and localStorage in a single HTML file.",
+      "12 isometric areas, 7 balloon destinations, 8 calendar pieces to find.",
+      "Playable on a phone (in Turkish) at su-21st-birthday.vercel.app."
+    ]
+  },
+  {
+    id: 6,
     title: "Cooked",
     description:
       "A recipe management and meal-planning web app delivered while leading a team of 5 developers.",
@@ -139,7 +168,7 @@ const projects: Project[] = [
     ]
   },
   {
-    id: 5,
+    id: 7,
     title: "Air Pollution Dashboard",
     description:
       "Led a 4-person team building a JavaFX GUI to explore London air pollution data across millions of records from 2018 to 2023.",
@@ -160,7 +189,7 @@ const projects: Project[] = [
     ]
   },
   {
-    id: 6,
+    id: 8,
     title: "King's Labs — TrackIt",
     description:
       "Full-stack Next.js task management app for King's Labs with NextAuth and Neon-backed user-specific APIs.",
@@ -181,7 +210,7 @@ const projects: Project[] = [
     ]
   },
   {
-    id: 7,
+    id: 9,
     title: "Simulation In Jungle",
     description:
       "Coursework simulation of entity interactions inside a forest on a 2D grid.",
@@ -202,7 +231,7 @@ const projects: Project[] = [
     ]
   },
   {
-    id: 8,
+    id: 10,
     title: "Survival In The City",
     description:
       "Text-based adventure where the player navigates a city, gathers parts, and escapes to a shelter.",
@@ -223,7 +252,7 @@ const projects: Project[] = [
     ]
   },
   {
-    id: 9,
+    id: 11,
     title: "Space Invaders",
     description: "A personal arcade-inspired game built with Python and Pygame.",
     year: "2024",
